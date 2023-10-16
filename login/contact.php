@@ -1,3 +1,24 @@
+<?php
+      session_start();
+
+      if ($_SERVER["REQUEST_METHOD"] == "POST") {
+          $servername = 'localhost';
+          $username = 'root';
+          $password = '';
+          $database = 'demo1';
+          $con = new mysqli($servername, $username, $password, $database);
+          if ($con->connect_error) {
+              die("Connection failed: " . $con->connect_error);
+          }
+
+          $con->close();
+      }
+?>
+
+
+
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -98,25 +119,44 @@
                     ?>
                 </div>
             </div>
+
+            <?php
+
+            if(isset($_SESSION["user_name"])){
+                $servername = 'localhost';
+                $username = 'root';
+                $password = '';
+                $database = 'demo1';
+                $con = new mysqli($servername, $username, $password, $database);
+                if ($con->connect_error) {
+                    die("Connection failed: " . $con->connect_error);
+                }
+                $username = $_SESSION["user_name"];
+                $sql = "SELECT * FROM db_user WHERE user_name = '$username'";
+                $result = mysqli_query($con, $sql);
+                $row = mysqli_fetch_assoc($result);
+                $name = $row["name"];
+                $tel = $row["tel"];
+                $address = $row["address"];
+            }
+
+
+            ?>
             <div class="col-lg-6 col-md-6 mb-5 px-4">
                <div class="bg-white rounded shadow p-4">
                 <form method="POST">
                 <h5 class="mt-2">Send a infomation</h5>
                     <div class="mt-3">
                         <label class="form-label">Name</label>
-                        <input type="text" name="name" class="form-control shadow-none">
-                    </div>
-                    <div class="mt-3">
-                        <label class="form-label">Email</label>
-                        <input type="email" name="email" class="form-control shadow-none">
+                        <input type="text" name="name" value="<?php echo $name; ?>" class="form-control shadow-none" disabled>
                     </div>
                     <div class="mt-3">
                         <label class="form-label">Tel</label>
-                        <input type="number" name="tel" class="form-control shadow-none">
+                        <input type="number" name="tel" value="<?php echo $tel; ?>" class="form-control shadow-none" disabled>
                     </div>
                     <div class="mt-3">
                         <label class="form-label">Address</label>
-                        <input type="text" name="address" class="form-control shadow-none">
+                        <input type="text" name="address" value="<?php echo $address; ?>" class="form-control shadow-none" disabled>
                     </div>
                     <div class="mt-3">
                         <label class="form-label">Title</label>
@@ -142,23 +182,24 @@
 
     <?php
 
-    if(isset($_POST['send']))
-    {
-        $frm_data = filter($_POST);
+        if(isset($_POST['send'])){
+            $name2 = $name;
+            $tel2 = $tel;
+            $address2 = $address;
+            $title = $_POST['title'];
+            $message = $_POST['message'];
 
-        $q = "INSERT INTO `user_queries`(`name`, `email`, `tel`, `address`, `title`, `message`) VALUES (?,?,?,?,?,?)";
+            $q = "INSERT INTO `user_queries`(`name`, `tel`, `address`, `title`, `message`) VALUES (?,?,?,?,?)";
+            $values = [$name2, $tel2, $address2, $title, $message];
+            $res = insert($q, $values, 'sssss');
 
-        $values = [$frm_data['name'],$frm_data['email'],$frm_data['tel'],$frm_data['address'],$frm_data['title'],$frm_data['message']];
-
-        $res = insert($q,$values,'ssssss');
-
-        if($res==1){
-            customalert('success','Sent Success');
+            if($res == 1){
+                customalert('success', 'Sent Success');
+            }
+            else {
+                customalert('error', 'Sent Fail');
+            }
         }
-        else {
-            customalert('error','Sent Fail');
-        }
-    }
 
     ?>
 

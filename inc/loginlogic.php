@@ -1,7 +1,6 @@
 <?php
-    
+    session_start(); // Start the session
     require('./inc/db_config.php');
-    
     $error = ""; 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $user_name = $_POST["user_name"];
@@ -17,12 +16,15 @@
                 header("Location: ./admin/admin.php");
                 exit();
             } else if ($role == 0) {
-                // Chuyển hướng đến trang user
+                // Lưu dữ liệu tài khoản vào session
+                $_SESSION["user_name"] = $row["user_name"];
+                // Chuyển hướng đến trang đăng nhập
                 header("Location: ./login/login.php");
                 exit();
             }
         } else {
-            $error = " ";
+            $error = "Tài khoản hoặc mật khẩu không đúng.";
         }
     }
     $con->close();
+?>

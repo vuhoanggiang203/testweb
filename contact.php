@@ -114,10 +114,6 @@
                         <input type="text" name="name" class="form-control shadow-none">
                     </div>
                     <div class="mt-3">
-                        <label class="form-label">Email</label>
-                        <input type="email" name="email" class="form-control shadow-none">
-                    </div>
-                    <div class="mt-3">
                         <label class="form-label">Tel</label>
                         <input type="number" name="tel" class="form-control shadow-none">
                     </div>
@@ -146,28 +142,6 @@
         </div>
     </div>
 
-
-    <?php
-
-    if(isset($_POST['send']))
-    {
-        $frm_data = filter($_POST);
-
-        $q = "INSERT INTO `user_queries`(`name`, `email`, `tel`, `address`, `title`, `message`) VALUES (?,?,?,?,?,?)";
-
-        $values = [$frm_data['name'],$frm_data['email'],$frm_data['tel'],$frm_data['address'],$frm_data['title'],$frm_data['message']];
-
-        $res = insert($q,$values,'ssssss');
-
-        if($res==1){
-            echo 'Thanh cong';
-        }
-        else {
-            echo 'That bai';
-        }
-    }
-
-    ?>
 
     <!-- Footer -->
 

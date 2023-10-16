@@ -68,13 +68,12 @@ if(isset($_GET['del']))
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Name</th>
-                                    <th scope="col">Email</th>
                                     <th scope="col">Tel</th>
                                     <th scope="col" width="20%">Address</th>
                                     <th scope="col" width="20%">Title</th>
                                     <th scope="col" >Message</th>
                                     <th scope="col" width="20%">Date</th>
-                                    <th scope="col" width="20%">Action</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -94,7 +93,6 @@ if(isset($_GET['del']))
                                             <tr>
                                                 <td>$i</td>
                                                 <td>$row[name]</td>
-                                                <td>$row[email]</td>
                                                 <td>$row[tel]</td>
                                                 <td>$row[address]</td>
                                                 <td>$row[title]</td>

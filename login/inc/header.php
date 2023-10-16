@@ -28,7 +28,6 @@ require('../admin/inc/essential.php');
                 <li class="nav-item">
                     <a class="nav-link me-2" href="new.php">News</a>
                 </li>
-
                 <li class="nav-item">
                     <a class="nav-link me-2" href="contact.php">Contact Us</a>
                 </li>
@@ -36,8 +35,12 @@ require('../admin/inc/essential.php');
                     <a class="nav-link me-2" href="about.php">About</a>
                 </li>
             </ul>
-        <div class="d-flex">
-            <a class="btn btn-outline-dark shadow-none me-lg-3 me-2" href="logout.php">Logout</a>
+            <div class="d-flex align-items-center">
+                <a href="profile.php">
+                    <img src="./images/Logo/avatar.png" class="rounded-circle me-2" style="width: 40px; height: 40px;">
+                </a>
+                <a class="btn btn-outline-dark shadow-none me-lg-3 me-2" href="logout.php">Logout</a>
+            </div>
         </div>
-        </div>
-    </nav>
+    </div>
+</nav>
