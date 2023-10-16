@@ -1,0 +1,60 @@
+*{
+    font-family: 'Poppins', sans-serif;
+}
+.header-font{
+    font-family: 'Merienda', cursive;
+}
+.note-font {
+    font-family: 'Roboto', sans-serif;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+@media screen and (min-width: 1024px) {
+    .swiper-slide img {
+    height: 550px;
+    }
+}
+.custom-bg {
+    background-color: #2ec1ac;
+}
+.custom-bg:hover {
+    background-color: #279e8c;
+}
+.avai-form {
+    margin-top: -50px;
+    z-index: 2;
+    position: relative;
+}
+@media screen and (max-width: 575px) {
+.avai-form {
+    margin-top: 25px;
+    padding: 0 35px;
+}
+}
+.price-color {
+    color: #fd5056
+}
+.tour-item:hover {
+
+box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+transform: translate(0,-3px);
+}
+.header-line {
+    width: 150px;
+    margin: 0 auto;
+    height: 1.7px;
+}
+.pop-up:hover {
+    border-top-color: #8d54fd !important;
+    transform: scale(1.03);
+    transition: all 0.3s;
+}
+.custom-alert {
+    position: fixed;
+    right: 25px;
+    top: 100px;
+}

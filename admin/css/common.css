@@ -1,0 +1,38 @@
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+.header-font {
+    font-family: 'Merienda', cursive;
+}
+
+.note-font {
+    font-family: 'Roboto', sans-serif;
+}
+
+#admin-menu {
+    position: fixed;
+    height: 100%;
+}
+
+@media screen and (max-width: 991px) {
+    #admin-menu {
+        height: auto;
+        width: 100%;
+    }
+
+    #main-content {
+        margin-top: 60px;
+    }
+}
+
+.custom-alert {
+    position: fixed;
+    right: 25px;
+    top: 100px;
+}
+
+#addtour {
+    position: static;
+
+}
