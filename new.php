@@ -1,3 +1,9 @@
+<?php 
+    require('./inc/loginlogic.php');
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 

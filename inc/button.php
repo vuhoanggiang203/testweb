@@ -24,7 +24,7 @@
             <div class="modal-body">
                 <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                     <div class="mb-3">
-                        <label class="form-label">Email address</label>
+                        <label class="form-label">Username</label>
                         <input name="user_name" type="text" class="form-control shadow-none" id="emailaddress">
                     </div>
                     <div class="mb-3">
@@ -47,7 +47,7 @@
     aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form>
+            <form action="./inc/reginster.php" method="POST" onsubmit="return validateForm()">
                 <div class="modal-header">
                     <h5 class="modal-title d-flex align-items-center">
                         <i class="bi bi-person-lines-fill fs-3 me-2"></i> User Register
@@ -57,55 +57,59 @@
                 </div>
                 <div class="modal-body">
                     <span class="badge text-bg-light mb-3 text-wrap lh-base note-font">
-                        Note: Thông tin của bạn phải đúng với giấy tờ (CCCD, CMND, GPLX, etc...) vì sẽ được kiểm tra
-                        lại lúc check-in.
+                    Note: Thông tin của bạn phải đúng với giấy tờ (CCCD, CMND, GPLX, etc...) vì sẽ được kiểm tra.
                     </span>
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-6 ps-0 mb-3">
                                 <label class="form-label">Name</label>
-                                <input type="text" class="form-control shadow-none">
+                                <input name="name" type="text" class="form-control shadow-none" required>
                             </div>
                             <div class="col-md-6 ps-0 mb-3">
-                                <label class="form-label">Email</label>
-                                <input type="email" class="form-control shadow-none">
+                                <label class="form-label">Username</label>
+                                <input name="user_name" type="text" class="form-control shadow-none" required>
                             </div>
-                            <div class="col-md-6 ps-0 mb-3">
+                            <div class="col-md-12 ps-0 mb-3">
                                 <label class="form-label">Phone Number</label>
-                                <input type="number" class="form-control shadow-none">
-                            </div>
-                            <div class="col-md-6 ps-0 mb-3">
-                                <label class="form-label">Picture</label>
-                                <input type="file" class="form-control shadow-none">
+                                <input name="tel" type="text" class="form-control shadow-none" required>
                             </div>
                             <div class="col-md-12 ps-0 mb-3">
                                 <label class="form-label">Address</label>
-                                <textarea class="form-control shadow-none" rows="1"></textarea>
+                                <textarea name="address" class="form-control shadow-none" rows="1" required></textarea>
                             </div>
-                            <div class="col-md-6 ps-0 mb-3">
-                                <label class="form-label">Pincode</label>
-                                <input type="number" class="form-control shadow-none">
-                            </div>
-                            <div class="col-md-6 ps-0 mb-3">
-                                <label class="form-label">Date of birth</label>
-                                <input type="date" class="form-control shadow-none">
+                            <div class="col-md-12 ps-0 mb-3">
+                                <label class="form-label">CID</label>
+                                <input name="cid" type="text" class="form-control shadow-none" required>
                             </div>
                             <div class="col-md-6 ps-0 mb-3">
                                 <label class="form-label">Password</label>
-                                <input type="password" class="form-control shadow-none" id="password"
-                                    onchange="check_pass();">
+                                <input name="user_pass" type="password" class="form-control shadow-none" id="password" required>
                             </div>
                             <div class="col-md-6 ps-0 mb-3">
                                 <label class="form-label">Confirm Password</label>
-                                <input type="password" class="form-control shadow-none" id="retype_password"
-                                    onchange="check_pass();">
+                                <input type="password" class="form-control shadow-none" id="retype_password" required>
                             </div>
                         </div>
                         <div class="text-center my-1">
-                            <button type="summit" class="btn btn-dark shadow-none" id="submit" disabled
-                                value="registration">REGISTER</button>
+                            <button type="submit" class="btn btn-dark shadow-none">REGISTER</button>
                         </div>
                     </div>
+                </div>
             </form>
         </div>
     </div>
+</div>
+
+<script>
+function validateForm() {
+    var password = document.getElementById("password").value;
+    var confirmPassword = document.getElementById("retype_password").value;
+
+    if (password !== confirmPassword) {
+        alert("Error: Passwords do not match.");
+        return false;
+    }
+
+    return true;
+}
+</script>

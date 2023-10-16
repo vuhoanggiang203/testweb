@@ -10,7 +10,7 @@ $data = mysqli_query($con, $sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - Dashboard Page</title>
+    <title>Admin - Tour Page</title>
     <style>
         a {
             text-decoration: none;
