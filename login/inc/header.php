@@ -23,7 +23,7 @@ require('../admin/inc/essential.php');
                     <a class="nav-link active me-2" aria-current="page" href="login.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link me-2" href="tour.php">Tours</a>
+                    <a class="nav-link me-2" href="tour_login.php">Tours</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link me-2" href="new.php">News</a>

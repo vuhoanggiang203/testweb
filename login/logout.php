@@ -7,7 +7,7 @@ session_unset();
 session_destroy();
 
 // Redirect to the initial page
-header('Location: http://localhost/Demo1/index.php');
+header('Location: ../index.php');
 exit;
 
 ?>

@@ -6,7 +6,7 @@ session_start();
 session_unset();
 session_destroy();
 
-header('Location: http://localhost/Demo1/index.php');
+header('Location: ../index.php');
 exit;
 
 ?>

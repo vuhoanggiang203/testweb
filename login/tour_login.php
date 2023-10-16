@@ -1,6 +1,6 @@
 <?php
-require('../demo1/inc/loginlogic.php');
-require('../demo1/inc/db_config.php');
+require('../admin/inc/db_config.php');
+require('../admin/inc/essential.php');
 
 
 $sql = "SELECT * FROM ql_tour ";
@@ -70,7 +70,7 @@ $data = mysqli_query($con, $sql);
 
                             </div>
 
-                            <button type="button" href="#" class="btn btn-primary w-100 mt-3" id="<?php echo $row['sr_no'] ?>"><a href="detail_tours.php?id=<?php echo $row['sr_no'] ?>" style="text-decoration: none; color: #fff;">Booking now</a></button>
+                            <button type="button" href="#" class="btn btn-primary w-100 mt-3" id="<?php echo $row['sr_no'] ?>"><a href="detail_tour_login.php?id=<?php echo $row['sr_no'] ?>" style="text-decoration: none; color: #fff;">Booking now</a></button>
                         </div>
                     </div>
 
